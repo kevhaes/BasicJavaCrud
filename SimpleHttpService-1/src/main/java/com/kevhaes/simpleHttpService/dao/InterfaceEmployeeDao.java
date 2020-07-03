@@ -14,6 +14,14 @@ import com.kevhaes.simpleHttpService.dtoAKAmodel.Employee;
  */
 public interface InterfaceEmployeeDao extends JpaRepository<Employee, Long> {
 
+//	/**
+//	 * @param role
+//	 * @return
+//	 */
+//	default List<Employee> findAll(String role) {
+//		return Employee.
+//	}
+
 // JpaRepository is JPA specific extension of Repository . 
 // It contains a full API of CrudRepository and PagingAndSortingRepository . 
 // So it contains API for basic CRUD operations and also API for pagination and sorting.

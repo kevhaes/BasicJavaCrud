@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kevhaes.simpleHttpService.dtoAKAmodel.Employee;
+import com.kevhaes.simpleHttpService.dtoAKAmodel.Role;
 import com.kevhaes.simpleHttpService.service.EmployeeService;
 
 /**
@@ -56,6 +57,11 @@ public class EmployeeController {
 	@PutMapping(path = "{id}")
 	public Employee UpdateEmployee(@RequestBody Employee employeeToUpdate) {
 		return employeeService.UpdateEmployee(employeeToUpdate);
+	}
+
+	@GetMapping(path = "/role/{role}")
+	public List<Employee> showEmployeesByRole(@PathVariable("role") Role role) {
+		return employeeService.showAllEmployeesByRoll(role);
 	}
 
 }

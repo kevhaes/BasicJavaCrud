@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.kevhaes.simpleHttpService.dtoAKAmodel.Employee;
+import com.kevhaes.simpleHttpService.dtoAKAmodel.Role;
 import com.kevhaes.simpleHttpService.service.EmployeeService;
 
 /**
@@ -68,4 +69,9 @@ public class EmployeeWebController {
 		return "employeesoverview";
 	}
 
+	@GetMapping(path = "/role/{role}")
+	public String showEmployeesByRole(@PathVariable("role") Role role, Model model) {
+		model.addAttribute("employees", employeeService.showAllEmployeesByRoll(role));
+		return "employeesByRoleView";
+	}
 }

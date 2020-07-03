@@ -4,6 +4,7 @@
  */
 package com.kevhaes.simpleHttpService.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.kevhaes.simpleHttpService.dao.InterfaceEmployeeDao;
 import com.kevhaes.simpleHttpService.dtoAKAmodel.Employee;
+import com.kevhaes.simpleHttpService.dtoAKAmodel.Role;
 
 /**
  * @author KevHaes
@@ -52,6 +54,17 @@ public class EmployeeService implements InterfaceEmployeeService {
 	public Employee UpdateEmployee(Employee employee) {
 		return interfaceEmployeeDao.save(employee);
 
+	}
+
+	public List<Employee> showAllEmployeesByRoll(Role role) {
+		List<Employee> resultList = new ArrayList<Employee>();
+		interfaceEmployeeDao.findAll().forEach(employee -> {
+			if (employee.getRole().equals(role)) {
+				resultList.add(employee);
+			}
+		});
+
+		return resultList;
 	}
 
 }

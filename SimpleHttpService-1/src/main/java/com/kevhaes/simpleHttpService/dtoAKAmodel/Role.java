@@ -10,4 +10,5 @@ package com.kevhaes.simpleHttpService.dtoAKAmodel;
  */
 public enum Role {
 	Boss, Manager, Employee, Volunteer
+
 }

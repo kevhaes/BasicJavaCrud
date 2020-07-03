@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org">
- 
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Delete an Employee</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Delete an Employee</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 </head>
- 
+
 <body>
 
-<div th:switch="${employee}" class="container my-2">
-  <div class="card">
-    <div class="card-body">
-    <div class="form-group">
-  	<form th:action="@{{id}(id=${employee.id})}" method="post" > 
-  	
-<h1>Are you sure you want to delete 
-<span th:text="${employee.firstName}">fn</span>
-<span th:text="${employee.lastName}">ln</span>?</h1>
-	<div>
-  <button type="submit" class="btn btn-outline-secondary" >Submit</button>
-	</div>
-  
- </form>
- </div>
- </div>
- </div>
- </div>
+	<div th:switch="${employee}" class="container my-2">
+		<div class="card">
+			<div class="card-body">
+				<div class="form-group">
+					<form th:action="@{{id}(id=${employee.id})}" method="post">
 
- <script>
+						<h1>
+							Are you sure you want to delete <span
+								th:text="${employee.firstName}">fn</span> <span
+								th:text="${employee.lastName}">ln</span>?
+						</h1>
+						<div></div>
+						<button type="submit" class="btn btn-outline-danger">CONFIR
+							DELETE</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
     window.onunload = refreshParent;
     function refreshParent() {
         window.opener.location.reload();
